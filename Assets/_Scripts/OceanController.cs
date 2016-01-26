@@ -33,4 +33,5 @@ public class OceanController : MonoBehaviour {
 	public void Reset(){
 		this._transform.position = new Vector2 (0, 480f);
 	}
+		
 }
