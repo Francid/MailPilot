@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour {
 	public Text scoreLabel;
 	public Text gameOverLabel;
 	public Text highScoreLabel;
+	public Button restartButton;
 
 
 	// Use this for initialization
@@ -60,10 +61,12 @@ public class GameController : MonoBehaviour {
 		this.LivesValue = 3;
 		this.gameOverLabel.gameObject.SetActive (false);
 		this.highScoreLabel.gameObject.SetActive (false);
+		this.restartButton.gameObject.SetActive (false);
 
 		for (int cloudCount = 0; cloudCount < this.cloudNumber; cloudCount++) {
 			Instantiate (this.cloud.gameObject);
 		}
+
 	}
 
 	private void _endGame(){
@@ -74,5 +77,13 @@ public class GameController : MonoBehaviour {
 		this.highScoreLabel.gameObject.SetActive (true);
 		this.plane.gameObject.SetActive (false);
 		this.island.gameObject.SetActive (false);
+		this.restartButton.gameObject.SetActive (true);
+	}
+
+
+	// PUBLIC METHODS
+
+	public void RestartButtonClick(){
+		Application.LoadLevel ("Main");
 	}
 }
